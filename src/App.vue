@@ -3,38 +3,23 @@
     <img alt="Vue logo" src="./assets/libraries-logo.jpg" />
     <Header v-bind:title="'Distinctive Collections Discovery'" />
     <Search v-bind:search="state.search" v-on:search="handleSearch" />
+    <div class="records">
+      <Record v-for="record in state.records" v-bind:record="record" v-bind:key = 'record.id'/>
+    </div>
   </div>
 </template>
 
 <script>
-  import { reactive, watch } from '@vue/composition-api';
   import Header from './components/Header.vue';
   import Search from './components/Search.vue';
   import Record from './components/Record.vue';
+  import { searchTimdexApi } from './hooks/timdex'
 
   export default {
     name: "App",
-    components: {
-      Header, Search, Record
-    },
+    components: { Header, Search, Record },
     setup() {
-      const state = reactive({
-        term: 'popcorn',
-        loading: true,
-        searchResults: [],
-        errorMessage: null
-      });
-
-      watch(() => {
-        const TIMDEX_API_URL = `'https://timdex.mit.edu/api/v1/search?q=${state.term}`;
-
-        fetch(TIMDEX_API_URL)
-          .then(response => response.json())
-          .then(data => {
-            state.searchResults = data.Search;
-            state.loading = false;
-          });
-      });
+      const state = searchTimdexApi();
 
       return {
         state,
@@ -42,7 +27,7 @@
           state.loading = true;
           state.search = searchTerm;
         }
-      }
+      };
     }
   }
 </script>
