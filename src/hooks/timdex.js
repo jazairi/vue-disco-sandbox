@@ -2,7 +2,7 @@ import { reactive, watch } from '@vue/composition-api';
 
 export const searchTimdexApi = () => {
   const state = reactive({
-    search: 'Joker',
+    search: null,
     loading: true,
     results: []
   });
