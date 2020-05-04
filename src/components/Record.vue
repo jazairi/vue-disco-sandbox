@@ -12,8 +12,9 @@
     name: "Record",
     props: ['record'],
     setup({ record }) {
-      const altText = computed(() => `The record title ${record.title}`);
-      return altText;
+      const altText = computed(() => `The record titled ${record.title}`);
+      
+      return { altText };
     }
   }
 </script>
