@@ -5,14 +5,6 @@
   </header>
 </template>
 
-<script>
-  export default {
-    name: 'Header',
-    props: ['title'],
-    setup() {}
-  }
-</script>
-
 <style>
   #header .header-slim .logo-mit-lib img {
     height: 35px;
