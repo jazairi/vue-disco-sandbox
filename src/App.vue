@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/libraries-logo.jpg" />
-    <Header />
+    <Header class="wrap-content header" />
     <Search v-bind:search="state.search" v-on:search="handleSearch" />
-    <div class="records">
+    <div class="records wrap-content">
       <Record v-for="record in state.results" v-bind:record="record" v-bind:key = 'record.id'/>
     </div>
   </div>
@@ -37,8 +36,18 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
 </style>
+
+<link rel="stylesheet" src="./assets/mit.css" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"
+/>
+<link
+  href="https://use.fontawesome.com/38304317ff.css"
+  media="all"
+  rel="stylesheet"
+/>

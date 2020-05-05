@@ -30,3 +30,28 @@
     }
   };
 </script>
+
+<style>
+  .search {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ccc;
+    padding: 1rem 1.5rem;
+  }
+  input {
+    -webkit-appearance: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 6px 12px;
+  }
+  .results-more {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+  }
+  .results-more a {
+    display: block;
+    text-align: center;
+  }
+</style>
