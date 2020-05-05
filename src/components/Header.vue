@@ -6,8 +6,8 @@
 </template>
 
 <style>
-  #header .header-slim .logo-mit-lib img {
-    height: 35px;
-    align: center;
-  }
+#header .header-slim .logo-mit-lib img {
+  height: 35px;
+  align: center;
+}
 </style>

@@ -2,40 +2,45 @@
   <div id="app">
     <Header class="wrap-content header" />
     <Search v-bind:search="state.search" v-on:search="handleSearch" />
-    <Record class="records wrap-content" v-for="record in state.results" v-bind:record="record" v-bind:key = 'record.id'/>
+    <Record
+      class="records wrap-content"
+      v-for="record in state.results"
+      v-bind:record="record"
+      v-bind:key="record.id"
+    />
   </div>
 </template>
 
 <script>
-  import Header from './components/Header.vue';
-  import Search from './components/Search.vue';
-  import Record from './components/Record.vue';
-  import { searchTimdexApi } from './hooks/timdex'
+import Header from "./components/Header.vue";
+import Search from "./components/Search.vue";
+import Record from "./components/Record.vue";
+import { searchTimdexApi } from "./hooks/timdex";
 
-  export default {
-    name: "App",
-    components: { Header, Search, Record },
-    setup() {
-      const state = searchTimdexApi();
+export default {
+  name: "App",
+  components: { Header, Search, Record },
+  setup() {
+    const state = searchTimdexApi();
 
-      return {
-        state,
-        handleSearch(searchTerm) {
-          state.loading = true;
-          state.search = searchTerm;
-        }
-      };
-    }
+    return {
+      state,
+      handleSearch(searchTerm) {
+        state.loading = true;
+        state.search = searchTerm;
+      }
+    };
   }
+};
 </script>
 
 <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
 </style>
 
 <link rel="stylesheet" src="./assets/mit.css" />
