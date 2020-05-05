@@ -12,8 +12,8 @@ export const searchTimdexApi = () => {
 
     fetch(TIMDEX_API_URL)
       .then(response => response.json())
-      .then(data => {q
-        state.results = data;
+      .then(data => {
+        state.results = data.results;
         state.loading = false;
       });
   });
