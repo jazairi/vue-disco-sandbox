@@ -1,5 +1,5 @@
 <template>
-  <div class="record">
+  <div v-if="record.source == 'MIT ArchivesSpace'" class="wrap-results">
     <div class="wrap-result">
       <div class="result-image">
         <img
@@ -72,7 +72,7 @@
       <a
         class="details button button-secondary"
         data-type="Detail"
-        :href="record.source_link"
+        v-bind:href="record.source_link"
         >Details and requests</a
       >
     </div>
@@ -83,7 +83,7 @@
   export default {
     name: "Record",
     props: ['record'],
-    setup({ record }) {
+    setup({ record }) { 
       return record;
     }
   }
@@ -100,31 +100,33 @@
     margin-top: 0.5rem;
   }
   .wrap-results {
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  background-color: #fff;
-  box-shadow: 0 0 3px 1px rgba(89, 89, 89, 0.3);
-  padding: 15px;
-  border-top: 3px solid #000;
-}
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    background-color: #fff;
+    box-shadow: 0 0 3px 1px rgba(89, 89, 89, 0.3);
+    padding: 15px;
+    border-top: 3px solid #000;
+  }
 
-.wrap-results .title {
-  margin-bottom: 0.1em;
-  font-size: 2.6rem;
-}
+  .wrap-results .title {
+    margin-bottom: 0.1em;
+    font-size: 2.6rem;
+  }
 
-.wrap-results .results-desc {
-  font-size: 1.3rem;
-  color: #595959;
-}
+  .wrap-results .results-desc {
+    font-size: 1.3rem;
+    color: #595959;
+  }
 
-.wrap-results .wc-link {
-  display: block;
-}
+  .wrap-results .wc-link {
+    display: block;
+  }
 
-.wrap-results .advsearch-desc {
-  font-size: 1.3rem;
-  color: #595959;
-  margin: 1rem 0 0 0;
-}
+  .wrap-results .advsearch-desc {
+    font-size: 1.3rem;
+    color: #595959;
+    margin: 1rem 0 0 0;
+  }
 </style>
+
+<link rel="stylesheet" href="../assets/mit.css" />

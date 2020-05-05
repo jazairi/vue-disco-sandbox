@@ -4,7 +4,10 @@
            v-bind:value="searchTerms"
            v-on:keyup="handleChange"
     />
-    <input v-on:click="handleSubmit" type="submit" value="Search" />
+    <input class="button-primary"
+           v-on:click="handleSubmit"
+           type="submit"
+           value="Search" />
   </form>
 </template>
 

@@ -2,9 +2,7 @@
   <div id="app">
     <Header class="wrap-content header" />
     <Search v-bind:search="state.search" v-on:search="handleSearch" />
-    <div class="records wrap-content">
-      <Record v-for="record in state.results" v-bind:record="record" v-bind:key = 'record.id'/>
-    </div>
+    <Record class="records wrap-content" v-for="record in state.results" v-bind:record="record" v-bind:key = 'record.id'/>
   </div>
 </template>
 
