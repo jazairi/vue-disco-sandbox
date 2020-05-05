@@ -4,7 +4,7 @@ export const searchTimdexApi = () => {
   const state = reactive({
     search: "",
     loading: true,
-    results: []
+    results: null
   });
 
   watch(() => {
@@ -12,8 +12,8 @@ export const searchTimdexApi = () => {
 
     fetch(TIMDEX_API_URL)
       .then(response => response.json())
-      .then(jsonResponse => {
-        state.results = jsonResponse.search;
+      .then(data => {q
+        state.results = data;
         state.loading = false;
       });
   });
