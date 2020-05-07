@@ -3,11 +3,19 @@
     <div class="wrap-content">
       <MainHeader />
       <Search :search="state.query" @search="handleSearch" />
-      <Record
-        v-for="record in state.results"
-        :record="record"
-        :key="record.id"
-      />
+      <div v-if="state.loading">
+        Searching...
+      </div>
+      <div v-else-if="state.results.length">
+        <Record
+          v-for="record in state.results"
+          :record="record"
+          :key="record.id"
+        />
+      </div>
+      <div v-else>
+        No results from MIT ArchivesSpace
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +31,7 @@ export default {
   components: { MainHeader, Search, Record },
   setup() {
     const state = searchTimdexApi();
+    console.log(state);
 
     return {
       state,

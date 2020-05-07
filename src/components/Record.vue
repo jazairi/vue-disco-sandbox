@@ -19,7 +19,6 @@
         }}</a>
       </h3>
     </div>
-    <div class="result-uniform-title"></div>
     <p>
       <span class="result-type">
         <span class="sr">Type: </span> {{ record.content_type }}
@@ -27,16 +26,16 @@
       <span class="result-year">Published {{ record.publication_date }}</span>
     </p>
     <div class="result-body">
-      <p
+      <span class="sr">Authors: </span>
+      <div
         class="result-authors"
         v-for="author in record.contributors"
         :key="author.id"
       >
-        <span class="sr">Authors: </span>
-        <span class="result-author">
+        <p class="result-author">
           {{ author.value }}
-        </span>
-      </p>
+        </p>
+      </div>
       <div class="result-subjectheadings">
         <span class="sr">Subjects: </span>
         <ul class="list-subjects" v-for="sub in record.subjects" :key="sub.id">
@@ -117,3 +116,5 @@ li > ol {
   margin: 1rem 0 0 0;
 }
 </style>
+
+<link rel="stylesheet" src="../assets/mit.css" />
