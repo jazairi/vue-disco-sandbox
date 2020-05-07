@@ -1,9 +1,9 @@
 <template>
-  <form class="search">
-    <input type="text" v-bind:value="searchTerms" v-on:keyup="handleChange" />
+  <form :class="search">
+    <input type="text" :value="searchTerms" @keyup="handleChange" />
     <input
       class="button-primary"
-      v-on:click="handleSubmit"
+      @click="handleSubmit"
       type="submit"
       value="Search"
     />

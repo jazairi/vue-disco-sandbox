@@ -7,8 +7,8 @@
           :alt="'Cover for ' + record.title"
           :src="
             'https://covers.openlibrary.org/b/isbn/' +
-              record.isbns[0] +
-              '-S.jpg'
+            record.isbns[0] +
+            '-S.jpg'
           "
         />
       </div>
@@ -30,7 +30,7 @@
       <p
         class="result-authors"
         v-for="author in record.contributors"
-        v-bind:key="author.id"
+        :key="author.id"
       >
         <span class="sr">Authors: </span>
         <span class="result-author">
@@ -39,11 +39,7 @@
       </p>
       <div class="result-subjectheadings">
         <span class="sr">Subjects: </span>
-        <ul
-          class="list-subjects"
-          v-for="sub in record.subjects"
-          v-bind:key="sub.id"
-        >
+        <ul class="list-subjects" v-for="sub in record.subjects" :key="sub.id">
           <li class="result-subjectheading">
             {{ sub }}
           </li>
@@ -55,7 +51,7 @@
       <ul
         class="list-local-locations"
         v-for="loc in record.summary_holdings"
-        v-bind:key="loc.id"
+        :key="loc.id"
       >
         <li class="result-local-location">
           {{ loc.location }} {{ loc.collection }} {{ loc.call_number }}
@@ -68,7 +64,7 @@
       <a
         class="details button button-secondary"
         data-type="Detail"
-        v-bind:href="record.source_link"
+        :href="record.source_link"
         >Details and requests</a
       >
     </div>
@@ -78,10 +74,7 @@
 <script>
 export default {
   name: "Record",
-  props: ["record"],
-  setup({ record }) {
-    return record;
-  }
+  props: ["record"]
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header class="wrap-content header" />
+    <MainHeader class="wrap-content header" />
     <Search v-bind:search="state.search" v-on:search="handleSearch" />
     <Record
       class="records wrap-content"
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import MainHeader from "./components/MainHeader.vue";
 import Search from "./components/Search.vue";
 import Record from "./components/Record.vue";
 import { searchTimdexApi } from "./hooks/timdex";
 
 export default {
   name: "App",
-  components: { Header, Search, Record },
+  components: { MainHeader, Search, Record },
   setup() {
     const state = searchTimdexApi();
 
