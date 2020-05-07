@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <MainHeader class="wrap-content header" />
-    <Search v-bind:search="state.search" v-on:search="handleSearch" />
-    <Record
-      class="records wrap-content"
-      v-for="record in state.results"
-      v-bind:record="record"
-      v-bind:key="record.id"
-    />
+    <div class="wrap-content">
+      <MainHeader />
+      <Search :search="state.query" @search="handleSearch" />
+      <Record
+        v-for="record in state.results"
+        :record="record"
+        :key="record.id"
+      />
+    </div>
   </div>
 </template>
 
@@ -27,7 +28,7 @@ export default {
       state,
       handleSearch(searchTerm) {
         state.loading = true;
-        state.search = searchTerm;
+        state.query = searchTerm;
       }
     };
   }

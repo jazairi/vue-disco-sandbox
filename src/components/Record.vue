@@ -117,5 +117,3 @@ li > ol {
   margin: 1rem 0 0 0;
 }
 </style>
-
-<link rel="stylesheet" href="../assets/mit.css" />
